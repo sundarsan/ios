@@ -75,14 +75,18 @@ println("My variable contains a \(theVariable)")
 
 ### Functions
 
-T
+Reusable code.
 ```swift
 func addOne(toThisNumber:Int) -> Int {
   return toThisNumber + 1
 }
+
+addOne(5)
 ```
 
 ### Classes
+
+Large organizational structure for your code.
 
 ```swift
 class MyClassName {
@@ -91,6 +95,8 @@ class MyClassName {
 ```
 
 ### Instance data
+
+Data that belongs to each object that is created with the class.
 
 ```swift
 class TheClass {
@@ -101,9 +107,11 @@ class TheClass {
 
 ### Referring to an object
 
-When you make an object, refer to it with the `self` keyword.
+In your class definition, refer to the object that will be running the code using the `self` keyword. This is the same as the `this` keyword in Java.
 
 ### Constructor
+
+Make a constructor by defining an `init` function.
 
 ```swift
 class TheClass {
@@ -115,3 +123,4 @@ class TheClass {
   }
 }
 ```
+
