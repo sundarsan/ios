@@ -73,6 +73,14 @@ var theVariable = 5
 println("My variable contains a \(theVariable)")
 ```
 
+### for
+
+```swift
+for index in 1...5 {
+    println("\(index) times 5 is \(index * 5)")
+}
+```
+
 ### Functions
 
 Reusable code.
