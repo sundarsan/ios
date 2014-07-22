@@ -53,3 +53,29 @@ button.setTitle("Zac Efron", forState: UIControlState.Normal)
 newView.addSubview(button)
         
 ```
+
+Hook up the button:
+```swift
+myButton.addTarget(self, action: "buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
+myButton.tag = 1
+```
+
+Make a function to respond to button clicks:
+```swift
+    func buttonClicked(sender:UIButton) {
+        println("Something got clicked")
+        if sender.tag == 1 {
+            println("Zac efron")
+            var newImage:UIImage = UIImage(named: "taylorswift.jpg")
+            imageView.image = newImage
+        }
+        if sender.tag == 2 {
+            println("Taylor Swift")
+            var newImage:UIImage = UIImage(named: "taylorswift.jpg")
+            imageView.image = newImage
+        }
+    }
+
+```
+
+
