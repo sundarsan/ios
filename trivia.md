@@ -83,4 +83,38 @@ Make a function to respond to button clicks:
 
 ```
 
+Now you want to hook up the logic of your application. For example, you could make a global `correctAnswer` variable that gets set by one function and read by the click handling function.
+```swift
+ func getRandomImage() -> String {
+        var rand = arc4random_uniform(4) + 1
+        if rand == 1 {
+            correctAnswer = 1
+            return "zacefron.jpg"
+        }
+        if rand == 2 {
+            correctAnswer = 2
+            return "taylorswift.jpg"
+        }
+        if rand == 3 {
+            correctAnswer = 3
+            return "billgates.jpg"
+        }
+        if rand == 4 {
+            correctAnswer = 4
+            return "arnoldschwartzenegger.jpg"
+        }
+        return "zacefron.jpg"
+    }
+    
+    func buttonClicked(sender:UIButton) {
+        if sender.tag == correctAnswer {
+            println("Correct!")
+        }
+        else {
+            println("Bad!")
+        }
+        var newImage:UIImage = UIImage(named: getRandomImage())
+        imageView.image = newImage
+    }
+```
 
