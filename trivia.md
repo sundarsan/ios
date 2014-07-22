@@ -42,3 +42,14 @@ class ViewController: UIViewController {
 
 
 ```
+
+
+Then, at the bottom of the `viewDidLoad` function, we created and added a button.
+```swift
+var button:UIButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
+button.frame = CGRectMake(0, 0, 200, 50)
+button.center = CGPointMake(180, 100)
+button.setTitle("Zac Efron", forState: UIControlState.Normal)
+newView.addSubview(button)
+        
+```
