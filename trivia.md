@@ -60,6 +60,11 @@ myButton.addTarget(self, action: "buttonClicked:", forControlEvents: UIControlEv
 myButton.tag = 1
 ```
 
+Maybe change the color:
+```swift
+myButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+```
+
 Make a function to respond to button clicks:
 ```swift
     func buttonClicked(sender:UIButton) {
