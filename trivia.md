@@ -71,7 +71,7 @@ Make a function to respond to button clicks:
         println("Something got clicked")
         if sender.tag == 1 {
             println("Zac efron")
-            var newImage:UIImage = UIImage(named: "taylorswift.jpg")
+            var newImage:UIImage = UIImage(named: "zacefron.jpg")
             imageView.image = newImage
         }
         if sender.tag == 2 {
