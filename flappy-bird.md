@@ -16,7 +16,7 @@ Then, we set the background color and set up the images as sprites in our game.
         birdTexture.filteringMode = .Nearest
         // Actually make the node
         bird = SKSpriteNode(texture: birdTexture)
-        bird.position = CGPointMake(320, 160)
+        bird.position = CGPoint(x: self.frame.size.width * 0.35, y:self.frame.size.height * 0.6)
         bird.xScale = 2
         bird.yScale = 2
         self.addChild(bird)
@@ -26,6 +26,6 @@ Then, we set the background color and set up the images as sprites in our game.
         ground.anchorPoint = CGPointMake(0, 0)              // anchor the ground to it's origin
         ground.size.width = self.size.width                 // make ground width same as window
         self.addChild(ground)
-        
     }
 ```
+
