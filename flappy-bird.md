@@ -29,3 +29,41 @@ Then, we set the background color and set up the images as sprites in our game.
     }
 ```
 
+## Adding in the physics
+
+Tell the world that it has gravity
+```swift
+override func didMoveToView(view: SKView) {
+        self.physicsWorld.gravity = CGVectorMake( 0.0, -5.0 )
+        ...
+        
+}
+```
+
+Set up the bird's physics body
+```swift
+bird.physicsBody = SKPhysicsBody(circleOfRadius: bird.size.height / 2.0)
+bird.physicsBody.dynamic = true
+bird.physicsBody.allowsRotation = false
+```
+
+For layering correctly:
+```swift
+bird.zPosition = -2
+```
+
+Change the `touchesBegan` function to reflect the only moving thing in the game
+```swift
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        if touches.count > 0 {
+            bird.physicsBody.velocity = CGVectorMake(0, 0)
+            bird.physicsBody.applyImpulse(CGVectorMake(0, 10))
+        }
+    }
+```
+
+
+
+
+
+
