@@ -62,7 +62,24 @@ Change the `touchesBegan` function to reflect the only moving thing in the game
     }
 ```
 
+## Make the pipes move
 
+Here's the making of a top pipe, kind of like how you made a bird. Remember that changing `physicsBody` of the pipe will make it work like a regular physics object.
+```swift
+    // Make the pipes
+        let topPipeTexture = SKTexture(imageNamed: "toppipe")
+        topPipeTexture.filteringMode = .Nearest
+        topPipe = SKSpriteNode( texture: topPipeTexture )
+        topPipe.position = CGPoint(x: self.frame.size.width, y:self.frame.size.height - 100)
+        topPipe.setScale(CGFloat(2))
+        self.addChild(topPipe)
+        
+        let distanceToMove = CGFloat(self.frame.size.width + 2.0 * topPipeTexture.size().width)
+        let movePipes = SKAction.moveByX(-distanceToMove, y:0.0, duration:NSTimeInterval(0.01 * distanceToMove))
+        let removePipes = SKAction.removeFromParent()
+        let movePipesAndRemove:SKAction = SKAction.sequence([movePipes, removePipes])
+        topPipe.runAction(movePipesAndRemove)
+```
 
 
 
