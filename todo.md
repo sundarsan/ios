@@ -104,3 +104,15 @@ On the text field, we're wiring up a Referencing Outlet to an `@IBOutlet` in our
 
 You also need to wire the `UITextFieldDelegate` as a delegate of the text field.
 
+## Refreshing the table view
+
+First make the `IBOutlet` and `IBAction`.
+```swift
+    @IBOutlet var tableView:UITableView;
+    
+    override func viewWillAppear(animated: Bool) {
+        tableView.reloadData()
+    }
+```
+
+Wire a referencing outlet from the table view to the `tableView` outlet in your code.
