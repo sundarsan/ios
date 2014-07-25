@@ -80,3 +80,27 @@ class TodoModel {
     }
 }
 ```
+
+## Make your model global
+
+Take the model variable out of the `FirstViewController` class and put it directly into the Swift file - this allows you to access and refer to it from the `SecondViewController`.
+
+## Wiring up the add item
+
+On the button we're wiring up the "Touch Up Inside" to an `@IBAction` function.
+
+First make the `@IBAction` function:
+```swift
+    @IBAction func buttonClicked(sender:UIButton) {
+        println(textField.text)
+        model.addTodo(textField.text)
+    }
+```
+
+On the text field, we're wiring up a Referencing Outlet to an `@IBOutlet` in our view controller.
+```swift
+@IBOutlet var textField:UITextField;
+```
+
+You also need to wire the `UITextFieldDelegate` as a delegate of the text field.
+
