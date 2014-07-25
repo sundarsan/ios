@@ -34,7 +34,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
 
 ## Making the model
 
-Here's a starting point
+Here's a starting point for you to add an implementation to (hint hint nudge nudge, make a list)
 ```swift
 class TodoModel {
     init() {
