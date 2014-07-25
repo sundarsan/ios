@@ -32,4 +32,21 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
 }
 ```
 
+## Making the model
 
+Here's a starting point
+```swift
+class TodoModel {
+    init() {
+        
+    }
+    
+    func addTodo(name:String) {
+        
+    }
+    
+    func getTodo(index:Int) {
+        
+    }
+}
+```
