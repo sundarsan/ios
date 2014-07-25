@@ -116,3 +116,7 @@ First make the `IBOutlet` and `IBAction`.
 ```
 
 Wire a referencing outlet from the table view to the `tableView` outlet in your code.
+
+## Hook in Firebase
+
+[Blog post about getting set up](http://drex.svbtle.com/writing-a-swift-app-with-firebase)
