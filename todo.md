@@ -38,15 +38,19 @@ Here's a starting point
 ```swift
 class TodoModel {
     init() {
-        
+        addTodo("foo")
     }
     
     func addTodo(name:String) {
         
     }
     
-    func getTodo(index:Int) {
-        
+    func getTodo(index:Int) -> String {
+        return ""
+    }
+    
+    func getTodoCount() -> Int {
+        return 0
     }
 }
 ```
