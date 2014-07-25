@@ -54,3 +54,29 @@ class TodoModel {
     }
 }
 ```
+
+Here's the completed model:
+```swift
+class TodoModel {
+    
+    var todos:[String] = []
+    
+    init() {
+        self.addTodo("Eat breakfast")
+        self.addTodo("Eat lunch")
+        self.addTodo("Eat dinner")
+    }
+    
+    func addTodo(name:String) {
+        todos += name
+    }
+    
+    func getTodo(index:Int) -> String {
+        return todos[index]
+    }
+    
+    func getTodoCount() -> Int {
+        return todos.count
+    }
+}
+```
