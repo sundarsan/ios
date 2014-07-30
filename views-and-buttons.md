@@ -2,8 +2,6 @@
 
 Here are some helpful utilities for working with many buttons across many views in a single view app.
 ```swift
-    var backgroundImage:UIImageView = UIImageView()
-    
     // List of current buttons in my app
     var currentButtons:[UIButton] = []
     
