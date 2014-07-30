@@ -32,3 +32,8 @@ Here are some helpful utilities for working with many buttons across many views 
         return button
     }
 ```
+
+You can use them like this:
+```swift
+addButtonToView( createButton("characters", load: "loadCharacters:", x: 160, y: 50) )
+```
