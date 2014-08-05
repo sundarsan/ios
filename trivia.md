@@ -10,9 +10,6 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    // Make an image view that you can modify from any function in this class
-    var imageView:UIImageView = UIImageView()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
