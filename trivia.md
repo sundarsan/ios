@@ -1,4 +1,6 @@
-## Making a trivia application
+# Making a trivia application
+
+## Set up the application
 
 First, we wrote some code to load a background onto the app. Recall the wall-frame-image analogy, where we are putting up a wall, then hanging a picture frame on it, then putting an image into the frame.
 
@@ -39,49 +41,39 @@ class ViewController: UIViewController {
 
 
 }
-
-
 ```
 
+## Add in a button
 
-Then, at the bottom of the `viewDidLoad` function, we created and added a button.
+Then, inside the `viewDidLoad` function, after the code we created above, we generated and added a button.
 ```swift
 var button:UIButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
-button.frame = CGRectMake(0, 0, 200, 50)
-button.center = CGPointMake(180, 100)
-button.setTitle("Zac Efron", forState: UIControlState.Normal)
-newView.addSubview(button)
-        
+button.frame = CGRectMake(0, 0, 100, 50)
+button.center = CGPointMake(160, 300)
+button.setTitle("Start", forState: UIControlState.Normal)
+wall.addSubview(button)
 ```
 
-Hook up the button:
+The button doesn't have to look so bland. You can style it by using `setBackgroundImage`, `setTitleColor`, and other functions for changing button styles.
+```swift
+
+```
+
+## Hook the button to a function
+
+Add a target to the button - the action `"buttonClicked:` is called a *selector*, and is used to refer to a function.
 ```swift
 myButton.addTarget(self, action: "buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
-myButton.tag = 1
 ```
 
-Maybe change the color:
-```swift
-myButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-```
-
-Make a function to respond to button clicks:
+Then, we add in a function named `buttonClicked` to respond to the button clicks. Make sure you place this along with all the other functions in your view.
 ```swift
     func buttonClicked(sender:UIButton) {
         println("Something got clicked")
-        if sender.tag == 1 {
-            println("Zac efron")
-            var newImage:UIImage = UIImage(named: "zacefron.jpg")
-            imageView.image = newImage
-        }
-        if sender.tag == 2 {
-            println("Taylor Swift")
-            var newImage:UIImage = UIImage(named: "taylorswift.jpg")
-            imageView.image = newImage
-        }
     }
-
 ```
+
+## Add in the logic
 
 Now you want to hook up the logic of your application. For example, you could make a global `correctAnswer` variable that gets set by one function and read by the click handling function.
 ```swift
