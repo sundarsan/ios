@@ -56,7 +56,10 @@ wall.addSubview(button)
 
 The button doesn't have to look so bland. You can style it by using `setBackgroundImage`, `setTitleColor`, and other functions for changing button styles.
 ```swift
-
+// Style and text of the button
+button.setTitle("Start", forState: UIControlState.Normal)
+button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+button.setBackgroundImage(UIImage(named: "button-background"), forState: UIControlState.Normal)
 ```
 
 ## Hook the button to a function
