@@ -1,6 +1,6 @@
 ## Making a trivia application
 
-First, we wrote some code to load in the images we got from the web.
+First, we wrote some code to load a background onto the app. Recall the wall-frame-image analogy, where we are putting up a wall, then hanging a picture frame on it, then putting an image into the frame.
 
 ```swift
 
@@ -13,21 +13,21 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Make constants to describe size of view
-        let width:CGFloat = 360
+        // Do any additional setup after loading the view, typically from a nib.
+        let width:CGFloat = 320
         let height:CGFloat = 480
-        // Make a view and add it to the main view
-        var newView:UIView = UIView(frame: CGRectMake(0, 0, width, height));
-        self.view.addSubview(newView)
         
-        // Make an image and add it to the imageView which was added to the
-        // view I created above
-        var newImage:UIImage = UIImage(named: "zacefron.jpg")
-        imageView = UIImageView(frame: newView.frame)
-        imageView.image = newImage
+        // Make the wall, the frame, and the image for the frame
+        var wall:UIView = UIView(frame: CGRectMake(0, 0, width, height))
+        var frame:UIImageView = UIImageView(frame: CGRectMake(0, 0, width, height))
+        var image:UIImage = UIImage(named: "billgates")
         
-        // Adding the image view to the new view I created
-        newView.addSubview(imageView)
+        // Put up the wall
+        view.addSubview(wall)
+        // Hang the frame on the wall
+        wall.addSubview(frame)
+        // Put the image into the frame
+        frame.image = image
     }
 
     
