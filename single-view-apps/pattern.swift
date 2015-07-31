@@ -1,62 +1,132 @@
 //
-//  ViewController.swift
-//  patterngame
+//  A game where you repeat a pattern.
 //
 //  Created by Keshav Saharia on 7/31/15.
-//  Copyright (c) 2015 example. All rights reserved.
-//
 
 import UIKit
 
 class ViewController: UIViewController {
 
-    var pattern = ["red", "green", "red", "red", "blue", "yellow"]
+    var pattern:[String] = []
+    var patternIndex = 0
+    var buttonsEnabled = false
     
+    // The buttons for the pattern
     @IBOutlet weak var red: UIButton!
     @IBOutlet weak var green: UIButton!
-    
     @IBOutlet weak var blue: UIButton!
-    
     @IBOutlet weak var yellow: UIButton!
     
+    // For prompting the user
     @IBOutlet weak var prompt: UILabel!
-    // Challenge 1: verify that you are following the pattern
-    // Hints:
-    // - make an index to store where you are in the pattern
-    // - keep increasing that index as the player gives correct taps
-    // - reset the index when the player gives a wrong tap
+    
+    // When any button is tapped
     @IBAction func tapped(sender:UIButton) {
-        if sender == red {
-            // you tapped the red button
-        }
-        if sender == green {
-            // ...
+        if buttonsEnabled {
+            if sender == red && pattern[patternIndex] == "red" {
+                button("red", on: true)
+                delay(0.2) {
+                    self.button("red", on: false)
+                }
+                patternIndex++
+            }
+            else if sender == green && pattern[patternIndex] == "green" {
+                button("green", on: true)
+                delay(0.2) {
+                    self.button("green", on: false)
+                }
+                patternIndex++
+            }
+            else if sender == blue && pattern[patternIndex] == "blue" {
+                button("blue", on: true)
+                delay(0.2) {
+                    self.button("blue", on: false)
+                }
+                patternIndex++
+            }
+            else if sender == yellow  && pattern[patternIndex] == "yellow" {
+                button("yellow", on: true)
+                delay(0.2) {
+                    self.button("yellow", on: false)
+                }
+                patternIndex++
+            }
+            else {
+                prompt.text = "Wrong! Should have been " + pattern[patternIndex]
+                patternIndex = 0
+            }
+            
+            if patternIndex >= pattern.count {
+                patternIndex = 0
+                prompt.text = "Great, you got it right!"
+                
+                delay(1.0) {
+                    self.increasePattern()
+                    self.showPattern()
+                }
+            }
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func showPattern() {
+        // Prompt the user to watch the pattern and disable button input
+        prompt.text = "Watch the pattern!"
+        buttonsEnabled = false
         
+        // Turn off all buttons
         button("red", on: false)
         button("green", on: false)
         button("blue", on: false)
         button("yellow", on: false)
         
+        // Set delays for turning buttons on and off
         var time = 1.0
         for color in pattern {
+            // After the given amount of time, turn on the button
             delay(time) {
                 self.button(color, on: true)
             }
+            // After 0.4 seconds, turn it off
             delay(time + 0.4) {
                 self.button(color, on: false)
             }
+            // Turn on the next button after 0.5 seconds 
+            // (so there is a 0.1 second gap between buttons)
             time = time + 0.5
         }
+        // After the pattern was displayed, prompt the user and enable button input
         delay(time) {
             self.prompt.text = "Now you repeat it!"
+            self.buttonsEnabled = true
         }
+    }
+    
+    // Add a random color to the pattern
+    func increasePattern() {
+        var random = Int(arc4random_uniform(4))
+        if random == 0 {
+            pattern.append("red")
+        }
+        if random == 1 {
+            pattern.append("green")
+        }
+        if random == 2 {
+            pattern.append("blue")
+        }
+        if random == 3 {
+            pattern.append("yellow")
+        }
+    }
+    
+    // Show the first pattern
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        // Do any additional setup after loading the view, typically from a nib.
+        // Add a random color to the pattern array
+        increasePattern()
+        
+        // Show the current pattern
+        showPattern()
     }
     
     func button(button:String, on:Bool) {
@@ -84,7 +154,6 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-  // Delay function from StackOverflow
     func delay(delay:Double, closure:()->()) {
         dispatch_after(
             dispatch_time(
@@ -93,4 +162,6 @@ class ViewController: UIViewController {
             ),
             dispatch_get_main_queue(), closure)
     }
+
 }
+
