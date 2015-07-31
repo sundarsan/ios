@@ -3,6 +3,7 @@
 //
 //  Created by Keshav Saharia on 7/31/15.
 
+
 import UIKit
 
 class ViewController: UIViewController {
@@ -54,8 +55,10 @@ class ViewController: UIViewController {
             else {
                 prompt.text = "Wrong! Should have been " + pattern[patternIndex]
                 patternIndex = 0
+                showPattern()
             }
             
+            // If you got all the way through the paattern
             if patternIndex >= pattern.count {
                 patternIndex = 0
                 prompt.text = "Great, you got it right!"
@@ -87,12 +90,12 @@ class ViewController: UIViewController {
                 self.button(color, on: true)
             }
             // After 0.4 seconds, turn it off
-            delay(time + 0.4) {
+            delay(time + 0.5) {
                 self.button(color, on: false)
             }
             // Turn on the next button after 0.5 seconds 
             // (so there is a 0.1 second gap between buttons)
-            time = time + 0.5
+            time = time + 0.8
         }
         // After the pattern was displayed, prompt the user and enable button input
         delay(time) {
